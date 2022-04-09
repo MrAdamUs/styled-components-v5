@@ -1,9 +1,6 @@
 import React from "react"
+import { PageLayout } from "components/common/PageLayout"
 
 export default function Home() {
-  return (
-    <div>
-      <h1>Home</h1>
-    </div>
-  )
+  return <PageLayout>Home</PageLayout>
 }
