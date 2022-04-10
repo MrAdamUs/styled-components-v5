@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import { PageLayout } from "components/common/PageLayout"
-import { Input } from "components/common/Input"
+import { PageLayout, PasswordInput, Input } from "components/common"
+
 import styled from "styled-components"
 
 const Form = styled.form`
@@ -36,12 +36,10 @@ export default function Login() {
           value={formFields.username}
           type='text'
         />
-        <Input
+        <PasswordInput
           name='password'
-          placeholder='Password'
           onChange={handleInputChange}
           value={formFields.password}
-          type='password'
         />
       </Form>
     </PageLayout>
