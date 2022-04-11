@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react"
-import { PageLayout, PasswordInput, Input, Button } from "components/common"
+import {
+  PageLayout,
+  PasswordInput,
+  Input,
+  Button,
+  Spinner,
+} from "components/common"
 
 import styled from "styled-components"
 
@@ -52,18 +58,26 @@ export default function Login() {
     <PageLayout>
       <h1>Login</h1>
       <Form onSubmit={handleSubmit}>
-        <Input
-          name='username'
-          placeholder='Username'
-          onChange={handleInputChange}
-          value={formFields.username}
-          type='text'
-        />
-        <PasswordInput
-          name='password'
-          onChange={handleInputChange}
-          value={formFields.password}
-        />
+        <Spinner />
+        {loading ? (
+          <Spinner />
+        ) : (
+          <>
+            <Input
+              name='username'
+              placeholder='Username'
+              onChange={handleInputChange}
+              value={formFields.username}
+              type='text'
+            />
+            <PasswordInput
+              name='password'
+              onChange={handleInputChange}
+              value={formFields.password}
+            />
+          </>
+        )}
+
         <Button large type='submit' disabled={loading}>
           {loading ? "Loading" : "Login"}
         </Button>
